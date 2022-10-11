@@ -13,8 +13,12 @@ export default function AddRoom() {
   const nav = useNavigate();
 
   const addroom = () => {
-    const newRoom = { name: roomName, type, color, id: uniqid() };
-    setRooms([...rooms, newRoom]);
+    if (roomName.length < 5) {
+      const newRoom = { name: roomName, type, color, id: uniqid() };
+      setRooms([...rooms, newRoom]);
+    } else {
+      alert("room name must have up to 5 characters ");
+    }
     nav("/");
   };
   return (
